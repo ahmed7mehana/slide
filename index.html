@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> goal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Be ambitious</h1>
+  <div class="wrapper">
+    <div class="section">
+      <ul class="emojis">
+        <li class="slide-emoji"><img src="emojis/Vision board-pana.svg" alt=""></li>
+        <li ><img src="emojis/Next steps-rafiki.svg" alt=""></li>
+        <li><img src="emojis/People flying-bro.svg" alt=""></li>
+        <li><img src="emojis/Task-cuate.svg" alt=""></li>
+        <li><img src="emojis/Goal-cuate.svg" alt=""></li>
+        <li><img src="emojis/World Emoji Day-cuate.svg" alt=""></li>
+      </ul>
+    </div>
+    <div class="slider">
+      <div class="thumb"><span></span></div>
+      <div class="progress-bar"></div>
+      <input type="range" min="0" value="0" max="100">
+    </div>
+  </div>
+
+  <script>
+    const body = document.querySelector("body");
+    const emoji = document.querySelector(".slide-emoji");
+    const input = document.querySelector("input");
+    const bar = document.querySelector(".progress-bar");
+    const thumb = document.querySelector(".thumb");
+    input.oninput = ()=>{
+      let sliderValue = input.value;
+      thumb.style.left = sliderValue + '%';
+      bar.style.width = sliderValue + '%';
+      if(sliderValue < 20){
+        emoji.style.marginTop = "0px";
+        body.classList.add("angry");
+        body.classList.remove("confuse");
+        body.classList.remove("like");
+      }
+      if(sliderValue >= 20){
+        emoji.style.marginTop = "-240px";
+        body.classList.add("confuse");
+        body.classList.remove("angry");
+        body.classList.remove("like");
+      }
+      if(sliderValue >= 40){
+        emoji.style.marginTop = "-480px";
+      }
+      if(sliderValue >= 60){
+        emoji.style.marginTop = "-721px";
+        body.classList.add("like");
+        body.classList.remove("confuse");
+        body.classList.remove("angry");
+      }
+      if(sliderValue >= 80){
+        emoji.style.marginTop = "-960px";
+      }
+      if(sliderValue >= 95){
+        emoji.style.marginTop = "-1210px";
+      }
+
+    }
+  </script>
+
+</body>
+</html>
